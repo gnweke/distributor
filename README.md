@@ -2,6 +2,48 @@
 
 A program for distributing tokens efficiently via uploading a [Merkle root](https://en.wikipedia.org/wiki/Merkle_tree).
 
+## Install Anchor CLI
+
+This repository targets Anchor 0.31.x and Solana 2.3.x. Install the CLI tools before building:
+
+```bash
+cargo install --locked anchor-cli@0.31.1
+sh -c "$(curl -sSfL https://release.solana.com/v2.3.0/install)" -- --no-modify-path
+```
+
+## Local Dev Quickstart (macOS & Ubuntu)
+
+### Toolchain install
+
+```bash
+rustup toolchain install 1.83
+cargo install --locked anchor-cli@0.31.1
+sh -c "$(curl -sSfL https://release.solana.com/v2.3.0/install)" -- --no-modify-path
+npm install -g yarn
+```
+
+### Smoke test
+
+```bash
+solana-test-validator -r &
+sleep 5
+solana config set -ul
+solana airdrop 2
+```
+
+### Build and test
+
+```bash
+anchor build -p merkle_distributor
+anchor test -p merkle_distributor
+```
+
+Troubleshooting: ensure no OpenSSL dependency leaks.
+
+```bash
+cargo tree -p merkle-distributor -i openssl-sys
+```
+
 ## Claiming Airdrop via CLI
 
 To claim via CLI instead of using `https://jito.network/airdrop`, run the following commands.

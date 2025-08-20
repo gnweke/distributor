@@ -23,5 +23,4 @@ anchor-lang = { workspace = true }
 anchor-spl = { workspace = true }
 bytemuck = { workspace = true }
 jito-merkle-verify = { path = "../../verify" }
-solana-program = { workspace = true }
 solana-security-txt = { workspace = true }
